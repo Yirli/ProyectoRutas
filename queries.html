@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>Queries</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=1000, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Oxygen:400,700">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    
+    <script charset="utf-8" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script charset="utf-8" src="//cdn.datatables.net/1.10.0/js/jquery.dataTables.js"></script>
+    <script charset="utf-8" src="//cdn.jsdelivr.net/jquery.validation/1.13.1/jquery.validate.min.js"></script>
+    <script charset="utf-8" src="queries.js"></script>
+    <script charset="utf-8" src="maps.js"></script>
+
+
+    <!--Leaflet-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="css/leaflet-routing-machine.css"/>
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+   		integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+		crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+   		integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+   		crossorigin=""></script>
+
+  </head>
+  <body>
+
+        <div id="page_container">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="home.php">Home</a></li>
+            <li class="breadcrumb-item"><a href="company.html">Companies</a></li>
+            <li class="breadcrumb-item"><a href="route.html">Routes</a></li>
+            <li class="breadcrumb-item"><a href="queries.html">Queries</a></li>
+            <li class="breadcrumb-item"><a href="companyLog.html">Companies Log</a></li>
+            <li class="breadcrumb-item"><a href="routeLog.html">Routes Log</a></li>
+            <li class="breadcrumb-item"><a href="pointLog.html">Point Log</a></li>
+            <li class="breadcrumb-item"><a href="costLog.html">Cost Log</a></li>
+            <li class="breadcrumb-item"><a href="password.php">Account</a></li>
+            <li class="breadcrumb-item"><a href="?logout=true">Log Out</a></li>
+    </ol>
+            
+          
+                <h1>Queries</h1>
+
+                <div id="map" style="height: 400px; width:1000px;">
+                        <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+                        <script src="css/leaflet-routing-machine.js"></script>
+                        <script src="maps.js"></script>
+                </div>          
+
+        </div>
+
+
+        <button type="button" onclick="queryOne()" class="btn btn-light">Consultar Rutas de una Empresa particular</button>
+        <button type="button" onclick="queryTwo()" class="btn btn-light">Consultar Ruta especifica </button>
+        <button type="button" onclick="queryThree()" class="btn btn-light">Consultar Rutas con un Destino particular</button>
+        <button type="button" onclick="queryFour()" class="btn btn-light">Consultar Rutas con una parada intermedia en particular</button>
+        <button type="button" onclick="queryFive()" class="btn btn-light">Servicio especifico enunciado</button>
+        <button type="button" onclick="document.location.reload(true)" class="btn btn-light">Limpiar mapa</button>
+
+
+        <br><br>
+      
+        <table class="datatable" id="table_routes">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Description</th>
+            <th>Duration</th>
+            <th>Cost</th>
+            <th>Start Hour</th>
+            <th>Finish Hour</th>
+            <th>Handicap Availability</th>
+            <th>Company name</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    
+</body>
+
+</html>

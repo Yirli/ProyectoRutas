@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>Point Log</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=1000, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Oxygen:400,700">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.0/css/buttons.dataTables.min.css">
+
+    
+    
+    <script charset="utf-8" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script charset="utf-8" src="//cdn.datatables.net/1.10.0/js/jquery.dataTables.js"></script>
+    <script charset="utf-8" src="//cdn.jsdelivr.net/jquery.validation/1.13.1/jquery.validate.min.js"></script>
+    <script charset="utf-8" src="pointLog.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-3.3.1/jszip-2.5.0/dt-1.10.20/b-1.6.1/b-flash-1.6.1/b-html5-1.6.1/b-print-1.6.1/kt-2.5.1/r-2.2.3"/>
+ 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.3.1/jszip-2.5.0/dt-1.10.20/b-1.6.1/b-flash-1.6.1/b-html5-1.6.1/b-print-1.6.1/kt-2.5.1/r-2.2.3/datatables.min.js"></script>
+
+
+  </head>
+  <body>
+
+    <div id="page_container">
+
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="home.php">Home</a></li>
+        <li class="breadcrumb-item"><a href="company.html">Companies</a></li>
+        <li class="breadcrumb-item"><a href="route.html">Routes</a></li>
+        <li class="breadcrumb-item"><a href="queries.html">Queries</a></li>
+        <li class="breadcrumb-item"><a href="companyLog.html">Companies Log</a></li>
+        <li class="breadcrumb-item"><a href="routeLog.html">Routes Log</a></li>
+        <li class="breadcrumb-item"><a href="pointLog.html">Point Log</a></li>
+        <li class="breadcrumb-item"><a href="costLog.html">Cost Log</a></li>
+        <li class="breadcrumb-item"><a href="password.php">Account</a></li>
+        <li class="breadcrumb-item"><a href="?logout=true">Log Out</a></li>
+</ol>
+  
+
+      <h1>Point Log</h1>
+
+    </div>
+      <table class="datatable" id="table_points">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+
+    </div>
+
+    
+
+    <noscript id="noscript_container">
+      <div id="noscript" class="error">
+        <p>JavaScript support is needed to use this page.</p>
+      </div>
+    </noscript>
+
+    <div id="message_container">
+      <div id="message" class="success">
+        <p>This is a success message.</p>
+      </div>
+    </div>
+
+    <div id="loading_container">
+      <div id="loading_container2">
+        <div id="loading_container3">
+          <div id="loading_container4">
+            Loading, please wait...
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </body>
+</html>

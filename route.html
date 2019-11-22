@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>Routes</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=1000, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Oxygen:400,700">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    
+    <script charset="utf-8" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script charset="utf-8" src="//cdn.datatables.net/1.10.0/js/jquery.dataTables.js"></script>
+    <script charset="utf-8" src="//cdn.jsdelivr.net/jquery.validation/1.13.1/jquery.validate.min.js"></script>
+    <script charset="utf-8" src="route.js"></script>
+    <script src="maps.js"></script>
+
+    <!--Leaflet-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="css/leaflet-routing-machine.css"/>
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+   		integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+		crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+   		integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+   		crossorigin=""></script>
+
+  </head>
+  <body>
+
+    <div id="page_container">
+
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="home.php">Home</a></li>
+        <li class="breadcrumb-item"><a href="company.html">Companies</a></li>
+        <li class="breadcrumb-item"><a href="route.html">Routes</a></li>
+        <li class="breadcrumb-item"><a href="queries.html">Queries</a></li>
+        <li class="breadcrumb-item"><a href="companyLog.html">Companies Log</a></li>
+        <li class="breadcrumb-item"><a href="routeLog.html">Routes Log</a></li>
+        <li class="breadcrumb-item"><a href="pointLog.html">Point Log</a></li>
+        <li class="breadcrumb-item"><a href="costLog.html">Cost Log</a></li>
+        <li class="breadcrumb-item"><a href="password.php">Account</a></li>
+        <li class="breadcrumb-item"><a href="?logout=true">Log Out</a></li>
+</ol>
+  
+
+      <h1>Routes</h1>
+      
+      <button type="button" class="button" id="add_route">Add Route</button>
+      <br>
+
+    
+    </div>
+    <br>
+    <br>
+
+      <table class="datatable" id="table_routes">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Description</th>
+            <th>Duration</th>
+            <th>Cost</th>
+            <th>Start Hour</th>
+            <th>Finish Hour</th>
+            <th>Handicap Availability</th>
+            <th>Company name</th>
+            <th>Functions</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+
+    </div>
+
+    <div class="lightbox_bg"></div>
+
+    <div class="lightbox_container">
+      <div class="lightbox_close"></div>
+      <div class="lightbox_content">
+        
+        <h2>Add Route</h2>
+        <form class="form add" id="form_route" data-id="" novalidate>
+          <div class="input_container">
+            <label for="description">Description: <span class="required">*</span></label>
+            <div class="field_container">
+              <input type="text" class="text" name="description" id="description" value="" required>
+            </div>
+          </div>
+          <div class="input_container">
+            <label for="duration">Duration: <span class="required">*</span></label>
+            <div class="field_container">
+              <input type="text" class="text" name="duration" id="duration" value="" required>
+            </div>
+          </div>
+          <div class="input_container">
+            <label for="cost">Cost: <span class="required">*</span></label>
+            <div class="field_container">
+              <input type="text" class="text" name="cost" id="cost" value="" required>
+            </div>
+          </div>
+          <div class="input_container">
+            <label for="startHour">Start Hour: <span class="required">*</span></label>
+            <div class="field_container">
+              <input type="time" class="text" name="startHour" id="startHour" value="" required>
+            </div>
+          </div>
+          <div class="input_container">
+            <label for="endHour">End Hour: <span class="required">*</span></label>
+            <div class="field_container">
+              <input type="time" class="text" name="endHour" id="endHour" value="" required>
+            </div>
+          </div>
+          <div class="input_container">
+                <label for="handicap">Handicap Availability: <span class="required">*</span></label>
+                <div class="field_container">
+                  <input type="text" class="text" name="handicap" id="handicap" value="1" required>
+                </div>
+          </div>
+          <div class="input_container">
+            <label for="company_id">Company: <span class="required">*</span></label>
+            <div class="field_container">
+              <select class="form-control" id="company_id" name="company_id">
+              </select>
+            </div>
+          </div>
+          <br>
+ 
+          <div id="map" style="width: 400px; height: 400px;">
+                <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+                <script src="css/leaflet-routing-machine.js"></script>
+                <script src="maps.js"></script>
+          </div>
+      <br>
+           
+            <div>
+                <div class="input_container">
+                    <label for="labelNombre">Point Name:</label>
+                    <div class="field_container">
+                      <input type="text" class="text" name="pointName" id="pointName">
+                    </div>
+                  </div>
+
+                  <div class="input_container">
+                      <label for="labelDescription">Point Description:</label>
+                      <div class="field_container">
+                        <input type="text" class="text" name="pointDescription" id="pointDescription">
+                      </div>
+                    </div>
+
+                 </div>
+                 
+            <br>
+            
+          <div class="button_container">
+            <button id="addRoute" type="submit">Add Route</button>
+            <button type="button" id="addPoint">Add Point</button>
+            
+          </div>
+          
+        </form>
+        
+      </div>
+    </div>
+
+    <noscript id="noscript_container">
+      <div id="noscript" class="error">
+        <p>JavaScript support is needed to use this page.</p>
+      </div>
+    </noscript>
+
+    <div id="message_container">
+      <div id="message" class="success">
+        <p>This is a success message.</p>
+      </div>
+    </div>
+
+    <div id="loading_container">
+      <div id="loading_container2">
+        <div id="loading_container3">
+          <div id="loading_container4">
+            Loading, please wait...
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </body>
+</html>
